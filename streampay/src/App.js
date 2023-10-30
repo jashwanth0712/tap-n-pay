@@ -1,6 +1,7 @@
 import { useSDK } from '@metamask/sdk-react';
 import React, { useState } from 'react';
-import { formatBalance, formatChainAsNum} from './utils/unitsconvertor';
+import "./App.css"
+import { formatBalance, formatChainAsNum , sliceString} from './utils/unitsconvertor';
 export const App = () => {
   const [account, setAccount] = useState();
   const { sdk, connected, connecting, provider, chainId ,balance} = useSDK();
@@ -17,18 +18,25 @@ export const App = () => {
 
   return (
     <div className="App">
-      <button style={{ padding: 10, margin: 10 }} onClick={connect}>
-        Connect
+      {account?
+      <button  className="button-34" disabled={connected}style={{ padding: 10, margin: 10 }} onClick={connect}>
+      {sliceString(account)}
+    </button>
+    : 
+    <button className="button-34" style={{ padding: 10, margin: 10 }} onClick={connect}>
+        Connect wallet
       </button>
+       
+    }
       {connected && (
         <div>
           <>
-            {chainId && `Connected chain: ${formatBalance(balance)}`}
+            {`balance: ${formatBalance(balance)}`}
             <p></p>
 
-            {chainId && `Connected chain: ${formatChainAsNum(chainId)}`}
+            { `Connected chain: ${formatChainAsNum(chainId)}`}
             <p></p>
-            {account && `Connected account: ${account}`}
+            { `Connected account: ${account}`}
           </>
         </div>
       )}
