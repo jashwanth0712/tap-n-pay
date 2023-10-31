@@ -105,7 +105,7 @@ export const App = () => {
           Connect wallet
         </button>
       )}
-      <QRcodeComponent value="hiii"/>
+      <QRcodeComponent value="jashwanth,hi,howareyou"/>
       <h1>{qrdata}</h1>
     <QrcodeScanner setqrdata={setqrdata}/>
       {connected && (

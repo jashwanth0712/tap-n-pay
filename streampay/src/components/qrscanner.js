@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 const mediaConstraints = {
     video: {
-      facingMode: 'user', // Set this to 'environment' for the back camera
+      facingMode: 'environment', // Set this to 'environment' for the back camera
     },
   };
 const QrcodeScanner = ({setqrdata}) => {
   const [data, setData] = useState('No result');
 
   return (
-    <>
+    <div style={{display:"none"}}>
       <QrReader
 
         onResult={(result, error) => {
@@ -24,10 +24,10 @@ const QrcodeScanner = ({setqrdata}) => {
         }}
         constraints={mediaConstraints} // Pass the constraints to the QrReader component
        
-        style={{ width: '100%' }}
+        style={{ width: '0%' , display:"none" }}
       />
       <p>{data}</p>
-    </>
+    </div>
   );
 };
 export default QrcodeScanner;
