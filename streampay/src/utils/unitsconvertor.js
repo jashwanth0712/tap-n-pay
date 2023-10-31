@@ -8,12 +8,12 @@ export const formatBalance = (rawBalance) => {
     return chainIdNum
   }
   export const  sliceString=(str)=> {
-    if (str.length <= 9) {
+    if (str.length <= 6) {
       return str; // The string is too short to apply the slicing pattern.
     }
     
-    const firstFour = str.substring(0, 6);
-    const lastTwo = str.substring(str.length - 3);
+    const firstFour = str.substring(0, 3);
+    const lastTwo = str.substring(str.length - 2);
     
     return `${firstFour}...${lastTwo}`;
   }

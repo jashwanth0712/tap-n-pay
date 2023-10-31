@@ -111,3 +111,63 @@
 .full-width-circular-input {
   width: 100%;
 }
+
+
+.image-container {
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  /* You can adjust other styles like padding and margin here if needed */
+}
+
+.transaction-image {
+  width: 100%;
+  height: auto;
+  /* This ensures the image takes up 100% of the container width */
+}
+.blockies{
+  border-radius: 2px;
+}
+
+
+.transaction-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 3px;
+  width: 100%; /* Adjust the width as needed */
+  padding: 6px; /* Adjust padding as needed */
+  background-color: #ffffff; /* Set the background color */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Define the box shadow properties */
+  border-radius: 20px; /* Add rounded corners to create a curved background */
+  /* Add other styles like margin, text color, etc. as needed */
+}
+.transaction-card p{
+  margin: 0;
+  padding: 0;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 2%;
+  right:2% ;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.green {
+  background-color: green;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.red {
+  background-color: red;
+}
+

@@ -5,6 +5,8 @@ import { Framework } from "@superfluid-finance/sdk-core";
 import { ethers } from "ethers";
 import CircularInputField from './components/circularinput';
 import "./App.css";
+import { MyBlockies } from './components/blockties';
+import TransactionCard from './components/transaction';
 import QRcodeComponent from './components/qrgenerator';
 import QrcodeScanner from './components/qrscanner';
 async function createNewFlow(recipient, flowRate , provider , chainId) {
@@ -96,6 +98,7 @@ export const App = () => {
   };
   return (
     <div className="App">
+
       {account ? (
         <button className="button-34" disabled={connected} style={{ margin: 10 }} onClick={connect}>
           {sliceString(account)}
@@ -105,7 +108,7 @@ export const App = () => {
           Connect wallet
         </button>
       )}
-      <QRcodeComponent value="jashwanth,hi,howareyou"/>
+      {/* <QRcodeComponent value="jashwanth,hi,howareyou"/> */}
       <h1>{qrdata}</h1>
     <QrcodeScanner setqrdata={setqrdata}/>
       {connected && (
@@ -147,6 +150,11 @@ export const App = () => {
 
   <CircularInputField updateValue={handleIncrement} initialvalue={amount / 100} class="full-width-circular-input" />
 </div>
+<TransactionCard from="0x2222ad6f5af61a6f5sa6d5656468246" to="as0cvc65fad65fda65656fae"/>
+<TransactionCard from="0x2222ad6f5af61a6f5sa6d5656468246" to="as0cvc65fad65fda65656fae"/>
+<TransactionCard from="0x2222ad6f5af61a6f5sa6d5656468246" to="as0cvc65fad65fda65656fae"/>
+<TransactionCard from="0x2222ad6f5af61a6f5sa6d5656468246" to="as0cvc65fad65fda65656fae"/>
+
     </div>
   );
 };
