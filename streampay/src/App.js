@@ -64,8 +64,17 @@ export const App = () => {
     }
   };
   const handleAmountChange = (e) => {
-    setamount(e.target.value);
+    const valueWithG = e.target.value;
+    const valueWithoutG = valueWithG.replace('G$', ''); // Remove 'G$' from the input
+    const numericValue = parseFloat(valueWithoutG);
+  
+    if (!isNaN(numericValue)) {
+      setamount(numericValue); // Update the state with the numeric value
+    } else {
+      // Handle the case where the input does not contain a valid numeric value
+    }
   };
+  
   const handleCreateFlow = async () => {
     if (recipient && flowRate) {
       try {
@@ -121,12 +130,16 @@ export const App = () => {
         </div>
       )}
       <div class="container">
-  <input
-    type="text"
-    value={amount}
-    onChange={handleAmountChange}
-    class="centered-input"
-  />
+      <div className='inputfield'>
+    <input
+      type="text"
+      value={amount + "G$"}
+      onChange={handleAmountChange}
+      class="centered-input"
+    />
+  <p className='comment'>per min</p>
+</div>
+
   <CircularInputField updateValue={handleIncrement} initialvalue={amount / 100} class="full-width-circular-input" />
 </div>
     </div>
