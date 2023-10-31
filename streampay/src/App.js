@@ -4,7 +4,9 @@ import { formatBalance, formatChainAsNum, sliceString } from './utils/unitsconve
 import { Framework } from "@superfluid-finance/sdk-core";
 import { ethers } from "ethers";
 import CircularInputField from './components/circularinput';
-import "./App.css"
+import "./App.css";
+import QRcodeComponent from './components/qrgenerator';
+import QrcodeScanner from './components/qrscanner';
 async function createNewFlow(recipient, flowRate , provider , chainId) {
   await provider.request("eth_requestAccounts", []);
 
@@ -49,7 +51,8 @@ async function createNewFlow(recipient, flowRate , provider , chainId) {
   }
 }
 export const App = () => {
-  const [amount,setamount]=useState(0)
+  const [amount,setamount]=useState(0);
+  const [qrdata,setqrdata]=useState()
   const [account, setAccount] = useState();
   const [recipient, setRecipient] = useState(""); // State to store the recipient address
   const [flowRate, setFlowRate] = useState(""); // State to store the flow rate
@@ -102,7 +105,9 @@ export const App = () => {
           Connect wallet
         </button>
       )}
-
+      <QRcodeComponent value="hiii"/>
+      <h1>{qrdata}</h1>
+    <QrcodeScanner setqrdata={setqrdata}/>
       {connected && (
         <div>
           <>
